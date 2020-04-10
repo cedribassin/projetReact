@@ -6,10 +6,10 @@ import './Card.css'
 const HIDDEN_SYMBOL = '❓'
 // card = type du symbole et feedback = état d'affichage de se symbole
  /*si le feedback est un symbol alors on utilise un gros emoji sinon le symbol de la carte*/
-const Card = ({card, feedback, onClick }) =>(
+const Card = ({card, feedback, index, onClick }) =>(
     // on donne à onclick une fonction qui le moment venu (quand on l'appelle) fera le onclick
     // si synthaxe onclick={onclick(card) alors pas bon 
-<div className={`card ${feedback}`} onClick={()=> onClick(card)}>
+<div className={`card ${feedback}`} onClick={()=> onClick(index)}>
 <span className="symbol">
    
     {feedback === 'hidden' ? HIDDEN_SYMBOL : card}
@@ -28,6 +28,7 @@ Card.propTypes = {
         'justMismatched',
         'visible',
     ]).isRequired,
+    index: PropTypes.number.isRequired,
     onClick: PropTypes.func.isRequired,
 }
 export default Card
