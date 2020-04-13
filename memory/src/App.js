@@ -8,7 +8,7 @@ import HallOfFame, { FAKE_HOF } from './HallOfFame'
 import HighScoreInput from './HighScoreInput'
 
 const SIDE = 6
-const SYMBOLS = '😀🎉💖🎩🐶🐱🦄🐬🌍🌛🌞💫🍎🍌🍓🍐🍟🍿'
+export const SYMBOLS = '😀🎉💖🎩🐶🐱🦄🐬🌍🌛🌞💫🍎🍌🍓🍐🍟🍿'
 const VISUAL_PAUSE_MSECS = 750
 
 class App extends Component {
@@ -86,7 +86,7 @@ class App extends Component {
 
     const newPair = [currentPair[0], index]
     const newGuesses = guesses + 1
-    const matched = cards[newPair[0]] === 2//cards[newPair[1]]
+    const matched = cards[newPair[0]] === cards[newPair[1]]
     this.setState({ currentPair: newPair, guesses: newGuesses })
     if (matched) {
       this.setState({ matchedCardIndices: [...matchedCardIndices, ...newPair] })
